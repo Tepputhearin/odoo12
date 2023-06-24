@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="report_template">
+  <t t-call="report.report_xlsx">
+    <t t-set="context['data']" t-value="docs"/>
+    <t t-set="context['report_name']" t-value="'Example Report'"/>
+    <t t-foreach="docs" t-as="doc">
+      <div>
+        <span t-field="doc.name"/>
+        <span t-field="doc.quantity"/>
+        <span t-field="doc.price"/>
+        <span t-field="doc.total"/>
+      </div>
+    </t>
+  </t>
+</template>
+</odoo>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<odoo>
+    <!--   Kanban view of the patient model-->
+    <record id="beans_kanban" model="ir.ui.view">
+        <field name="name">beans.info.transient_model.kanban</field>
+        <field name="model">beans.info.transient_model</field>
+        <field name="arch" type="xml">
+            <kanban>
+                 <field name="beans_name"/>
+                 <field name="beans_type"/>
+                 <field name="beans_stocks"/>
+                 <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_global_click">
+                               <div class="oe_kanban_details">
+                                   <ul>
+                                       <li>
+                                           <field name="beans_name"/>
+                                       </li>
+                                       <li>
+                                           <field name="beans_type"/>
+                                       </li>
+                                       <li>
+                                           <field name="beans_stocks"/>
+                                       </li>
+                                   </ul>
+                               </div>
+                            </div>
+                        </t>
+                    </templates>
+            </kanban>
+        </field>
+    </record>
+<!--    Tree view of the patient model-->
+    <record id="beans_tree" model="ir.ui.view">
+        <field name="name">beans.info.transient_model.tree</field>
+        <field name="model">beans.info.transient_model</field>
+        <field name="arch" type="xml">
+            <tree string="Beans">
+
+                 <field name="beans_name"/>
+                 <field name="beans_type"/>
+                 <field name="beans_stocks"/>
+            </tree>
+        </field>
+    </record>
+
+    <!--    Form view of the patient model-->
+    <record id="beans_form" model="ir.ui.view">
+        <field name="name">beans.info.transient_model.form</field>
+        <field name="model">beans.info.transient_model</field>
+        <field name="arch" type="xml">
+            <form string="Beans">
+                <sheet>
+                <group>
+                 <group>
+                  <field name="beans_name"/>
+                 </group>
+                 <group>
+                    <field name="beans_type"/>
+                 </group>
+                </group>
+                <group>
+                 <field name="beans_stocks"/>
+                </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+<!--    action of the patients menu-->
+    <record id="action_beans" model = "ir.actions.act_window">
+        <field name="name">Beans</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">beans.info.transient_model</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first Employee!
+            </p>
+        </field>
+    </record>
+
+    <menuitem id="coffee_leaf" name="CoffeeBeans" sequence="20"/>
+    <menuitem id="coffee_dirt" name="Beans" parent="coffee_leaf" action="action_beans" sequence="10"/>
+    <menuitem id="menu_create_appointment"
+              name="Create Appointments"
+              parent="coffee_leaf"
+              action="action_create_appointment"
+              sequence="20"/>
+</odoo>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <report
+        id="report_beans"
+        string="Beans Report PDF"
+        model= "beans.info.transient_model"
+        report_type="qweb-pdf"
+        name="coffee_shop.report_beans"
+        file="coffee_shop.report_beans"/>
+     <report
+        id="report_example_xlsx"
+        model="employee.records"
+        string="Example Report"
+        report_type="xlsx"
+        name="coffee_shop.report_template"
+        file="coffee_shop.report_template"
+        attachment_use="True"
+     />
+
+</odoo>
